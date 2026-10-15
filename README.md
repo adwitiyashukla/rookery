@@ -4,7 +4,7 @@
 
 Graph mining on Stack Exchange and SNAP networks with PySpark.
 
-I wanted to really understand how graph algorithms work at scale, so I wrote them myself instead of calling a library. The Spark side has PageRank, connected components, k-core, label propagation, triangle counting and node2vec random walks. Next to it there is a small single machine engine in numba for triangles, k-core, Louvain and personalized PageRank. I ran everything on five Stack Exchange sites and four SNAP graphs on my laptop (HP OmniBook 5, Core 5 120U, 8 GB RAM). The biggest graph is LiveJournal with 4.0M nodes and 34.7M edges. Every result is checked against igraph, networkx and the counts SNAP publishes. At the end I use the Stack Exchange graphs to predict who is going to answer a new question.
+The Spark side has PageRank, connected components, k-core, label propagation, triangle counting and node2vec random walks. Next to it there is a small single machine engine in numba for triangles, k-core, Louvain and personalized PageRank. I ran everything on five Stack Exchange sites and four SNAP graphs on my laptop (HP OmniBook 5, Core 5 120U, 8 GB RAM). The biggest graph is LiveJournal with 4.0M nodes and 34.7M edges. Every result is checked against igraph, networkx and the counts SNAP publishes. At the end I use the Stack Exchange graphs to predict who is going to answer a new question.
 
 ![askubuntu tag communities](figures/tag_communities.png)
 
