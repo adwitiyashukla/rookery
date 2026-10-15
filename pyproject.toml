@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rookery"
+version = "0.1.0"
+description = "Graph mining at scale on Stack Exchange and SNAP networks with PySpark"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pyspark==4.2.0",
+    "pyarrow>=16",
+    "numpy>=2.0",
+    "pandas>=2.2,<3",
+    "numba>=0.60",
+    "scipy>=1.13",
+    "igraph>=0.11",
+    "networkx>=3.3",
+    "lightgbm>=4.3",
+    "gensim>=4.3",
+    "matplotlib>=3.8",
+    "py7zr>=1.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.scripts]
+rookery = "rookery.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "C4", "SIM"]

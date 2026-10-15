@@ -1,0 +1,103 @@
+[paths]
+data_dir = "data"
+figures_dir = "figures"
+
+[spark]
+master = "local[8]"
+driver_memory = "3g"
+shuffle_partitions = 32
+java_home = ""
+hadoop_home = ""
+local_dir = ""
+check_every = 4
+adaptive = true
+log_level = "ERROR"
+
+[fetch]
+stackexchange_url = "https://archive.org/download/stackexchange"
+snap_url = "https://snap.stanford.edu/data/bigdata/communities"
+sites = ["unix.stackexchange.com", "serverfault.com", "askubuntu.com", "superuser.com", "math.stackexchange.com"]
+snap_graphs = ["amazon", "dblp", "youtube", "lj"]
+retries = 5
+timeout_seconds = 120
+
+[ingest]
+keep_xml = false
+
+[graphs]
+min_weight = 1
+
+[pagerank]
+alpha = 0.85
+tol = 1e-5
+max_iter = 100
+
+[components]
+max_iter = 40
+
+[kcore]
+max_iter = 300
+spark_max_edges = 6000000
+
+[lpa]
+max_iter = 15
+self_weight = 1.0
+min_changed_fraction = 0.001
+reference_max_edges = 5000000
+
+[triangles]
+spark_max_edges = 6000000
+
+[louvain]
+resolution = 1.0
+max_levels = 20
+max_sweeps = 40
+min_gain = 1e-7
+seed = 7
+reference_max_edges = 5000000
+
+[walks]
+num_walks = 4
+walk_length = 20
+p = 1.0
+q = 0.5
+max_tries = 4
+seed = 7
+
+[embed]
+dim = 64
+window = 5
+negative = 5
+epochs = 2
+workers = 4
+seed = 7
+
+[routing]
+train_start = "2023-04-01"
+test_start = "2023-10-01"
+test_end = "2024-04-01"
+history_days = 730
+decay_days = 30.0
+candidates = 200
+max_train_questions = 6000
+max_test_questions = 4000
+k_values = [1, 5, 10, 20]
+ppr_alpha = 0.15
+ppr_eps = 1e-6
+num_leaves = 31
+learning_rate = 0.05
+n_estimators = 600
+seed = 7
+
+[crosscheck]
+networkx_max_edges = 1500000
+
+[figures]
+dpi = 150
+tag_map_site = "askubuntu.com"
+tag_map_top = 220
+
+[synth]
+scale = 1.0
+snap_scale = 1.0
+seed = 7
